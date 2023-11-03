@@ -9,38 +9,43 @@ const Home = () => {
   });
 
   return (
-    <div>
+    <div className="">
       <div className="flex justify-center bg-black text-white text-[30px] font-sans ">
         {" "}
-        BOOKS LIST{" "}
+        BOOK STORE{" "}
       </div>
-      <div className="flex justify-center items-center flex-col">
-        {data?.map((book) => {
-          return (
-            <div className="flex flex-col border-black border-solid border-[2px] m-[10px] w-[200px] h-[100px] p-2 rounded-md">
-              <div className="flex justify-end align-top  ">
-                <button className=" text-[10px] font-semibold hover:bg-red-600 cursor-pointer rounded-full px-1 ">
-                  x
-                </button>
-              </div>
-              <div>
-                <h1>Title : {book.title} </h1>
-                <h1> Author : {book.author} </h1>
-                <div className="flex justify-end">
-                  <button className=" text-sm rounded-md px-2 border-b-2 border-black border-[1px]  cursor-pointer bg-gray-500 ">
-                    Edit
+      <div className="flex flex-row">
+        <div className=" w-[500px]">
+          <img src="https://easydrawingguides.com/wp-content/uploads/2020/08/Open-Book-Step-08.png" />
+        </div>
+        <div className="flex justify-center items-center flex-wrap ">
+          {data?.map((book) => {
+            return (
+              <div className="flex flex-col border-black border-solid border-[2px] m-[10px] w-[200px] h-[100px]  rounded-md bg-sky-300">
+                <div className="flex justify-end align-top  ">
+                  <button className=" text-[8px] font-semibold cursor-pointer rounded-full px-1 ">
+                    x
                   </button>
                 </div>
+                <div className="p-2">
+                  <h1>Title : {book.title} </h1>
+                  <h1> Author : {book.author} </h1>
+                  <div className="flex justify-end">
+                    <button className=" text-sm rounded-md px-2 border-b-2 border-black border-[1px]  cursor-pointer hover:bg-gray-300 ">
+                      Edit
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="flex justify-center">
-        <h1> Didn't find it? </h1>
-        <button className="  ml-2 text-sm rounded-md px-2 border-b-2 border-black border-[1px] cursor-pointer  bg-green-400">
-          ADD BOOK
-        </button>
+            );
+          })}
+          <div className="flex items-end">
+            <h1> Didn't find it? </h1>
+            <button className="  ml-2 text-sm rounded-md px-2 border-b-2 border-black border-[1px] cursor-pointer  bg-green-400">
+              ADD BOOK
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
