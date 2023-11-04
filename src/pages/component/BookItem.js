@@ -31,6 +31,7 @@ const BookItem = ({ book }) => {
           <button className=" text-sm rounded-md px-2 border-b-2 border-black border-[1px]  cursor-pointer hover:bg-gray-300 ">
             Edit
           </button>
+
           {/* </Link> */}
         </div>
       </div>
