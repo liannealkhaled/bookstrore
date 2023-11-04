@@ -7,9 +7,17 @@ const getAllBooks = async () => {
 
 //// the link is coming for express in app.js in funcrion of routers app use ...
 
-const CreateBook = async () => {
-  const res = await instance.post();
+const CreateOneBook = async ({ title, author, price }) => {
+  const res = await instance.post("/api/book", {
+    title,
+    author,
+    price,
+  });
   return res.data;
 };
 
-export { getAllBooks };
+const deleteBook = async (id) => {
+  const res = await instance.delete(`/api/books/${id}`);
+  return res.data;
+};
+export { getAllBooks, CreateOneBook, deleteBook };

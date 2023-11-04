@@ -1,20 +1,27 @@
-import React from "react";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CreateOneBook } from "../api/books";
 
 const AddBook = () => {
-  const [userInfo, setUserInfo] = useState("");
-  const { user, setUser } = useContext(UserContext);
+  const [bookInfo, setBookInfo] = useState("");
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const handleChange = (e) => {
-    setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setBookInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const { mutate } = useMutation({
-    mutationKey: ["login"],
-    mutationFn: () => CreateBook(userInfo),
+    mutationKey: ["AddBook"],
+    mutationFn: () => CreateOneBook(bookInfo),
     onSuccess: () => {
-      setUser(true);
-      navigate("/transactions");
+      navigate("/");
+      queryClient.invalidateQueries("books");
     },
   });
 
