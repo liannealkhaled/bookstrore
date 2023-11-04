@@ -3,13 +3,15 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllBooks } from "../api/books";
 
 const Home = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["books"],
     queryFn: () => getAllBooks(),
   });
+  // if (isLoading) return <h1> ...loading .. </h1>;
 
   return (
     <div className="">
+      {/* wrap her wirh div,to make it in iphone view: hidden md:block  */}
       <div className="flex justify-center bg-black text-white text-[30px] font-sans ">
         {" "}
         BOOK STORE{" "}
