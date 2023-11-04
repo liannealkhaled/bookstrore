@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllBooks } from "../api/books";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { data, isLoading } = useQuery({
@@ -33,9 +34,12 @@ const Home = () => {
                   <h1>Title : {book.title} </h1>
                   <h1> Author : {book.author} </h1>
                   <div className="flex justify-end">
-                    <button className=" text-sm rounded-md px-2 border-b-2 border-black border-[1px]  cursor-pointer hover:bg-gray-300 ">
-                      Edit
-                    </button>
+                    <Link to={"/Book"}>
+                      <input> </input>
+                      <button className=" text-sm rounded-md px-2 border-b-2 border-black border-[1px]  cursor-pointer hover:bg-gray-300 ">
+                        Edit
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

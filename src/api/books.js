@@ -7,4 +7,9 @@ const getAllBooks = async () => {
 
 //// the link is coming for express in app.js in funcrion of routers app use ...
 
+const CreateBook = async () => {
+  const res = await instance.post();
+  return res.data;
+};
+
 export { getAllBooks };
